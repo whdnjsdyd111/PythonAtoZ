@@ -156,3 +156,144 @@ Error is 98%
 
 2. 문자열 포맷 코드
 
+코드|설명|
+---|---|
+%s|문자열(string)|
+%c|문자 1개(character)|
+%d|정수(Integer)|
+%f|부동소수(floating-point)|
+%o|8진수|
+%x|16진수|
+%%|리터럴 %|
+
+3. format 함수 사용
+
+format 함수로 더 발전된 스타일로 문자열 포맷을 지정할 수 있다.
+
+```python
+>>> "{0} lines".format(2) # 숫자 대입
+3 lines.
+
+>>> "{0} lines.".format("first") # 문자 대입
+first lines.
+
+>>> num = 3
+>>> "{0} lines".format(num) # 변수 대입
+3 lines.
+
+>>> num = 3
+>>> week = "two"
+>>> "{0} week, {1} lines".format(week, num) # 두 개 이상 값 대입
+two week, 3 lines.
+
+>>> "{week} week, {num} lines".format(week="three", num=4) # 이름으로 값 대입
+three week, 4 lines.
+
+>>> "{0:<10}".format("hi") # 왼쪽부터 정렬하여 10자리를 마저 맞춤
+'hi        '
+
+>>> "{0:=<10}".format("hi") # 왼쪽부터 '=' 으로 10자리를 마저 채움
+'hi========'
+
+>>> "{0:0.4f}".format(3.123123123) # 소수점 4자리까지만 표현
+3.1231
+
+>>> "{{ hi }}".format() # 중괄호({}) 를 그대로 사용하고 싶을 경우 2개 연속 사용
+{ hi }
+```
+
+4. f 문자열 포매팅
+
+파이썬 3.6버전부터 f 문자열 포매팅 기능이 사용 가능하다.
+
+다음과 같이 문자열 앞에 f 접두사로 사용한다.
+
+```python
+>>> name = '홍길동'
+>>> age = 25
+>>> f'내 이름은 {name} 입니다. 나이는 {age}입니다.'
+내 이름은 홍길동입니다. 나이는 25입니다.
+
+>>> f'나이는 {age+4}입니다.' # 수식을 통한 표현식 가능
+나이는 29입니다.
+```
+
+### 문자열 관련 
+
+1. 문자열 세기 (count)
+
+```python
+>>> a = "hi"
+>>> a.count('h')
+1
+```
+
+2. 위치 찾기 (find)
+
+```python
+>>> a = "hi"
+>>> a.count('h')
+0
+
+>>> a.count('s')
+-1
+```
+
+3. 위치 찾기 (index)
+
+```python
+>>> a = "hi"
+>>> a.count('i')
+1
+
+>>> a.count('x') # 해당하는 인덱스가 존재하지 않으면 오류 발생
+ValueError: substring not found 
+```
+
+4. 문자열 삽입 (join)
+
+```python
+>>> ",".join('abcd')
+a,b,c,d
+```
+
+5. 소문자 대문자 변경
+
+```python
+>>> a = 'hi'
+>>> a.upper()
+HI
+>>> a = 'HI'
+>>> a.lower()
+hi
+```
+
+6. 공백 제거
+
+```python
+>>> a = ' hi '
+>>> a.lstrip() # 왼쪼 공백제거
+'hi '
+>>> a.rstrip() # 오른쪽 공백 제거
+' hi'
+>>> a.strip() # 양쪽 공백 제거
+'hi'
+```
+
+7. 문자열 변경 (replace)
+
+```python
+>>> a = 'hellow'
+>>> a.replace('l', 'x')
+hexxow
+```
+
+8. 문자열 나누기 (split)
+
+```python
+>>> a = 'abcd'
+>>> a.split()
+['a', 'b', 'c', 'd']
+>>> b = 'a,b,c,d'
+>>> b.split(',')
+['a', 'b', 'c', 'd']
